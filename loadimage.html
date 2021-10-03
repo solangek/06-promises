@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function loadImage(url){
+        return new Promise(function(resolve, reject) {
+            var img = new Image();
+            img.src = url; // async - open connection
+            img.onload = function() { resolve(img) }
+            img.onerror = function(e) { reject(e) }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        
+        var imgPromise = loadImage("http://cs.hac.ac.il/projects/www/2011/projects_2011/dp_hbyt_files/shafpeimage_2.png");
+
+        imgPromise.then(function (img){
+            document.getElementById("content").appendChild(img);
+        }).catch(function(e){
+            console.log("error");
+            console.log(e);
+        });
+
+    }, false);
+
+
+
+</script>
+<h1>loading an image asynchronously</h1>
+<div id="content">
+The image will appear here:<br/>
+</div>
+</body>
+</html>
