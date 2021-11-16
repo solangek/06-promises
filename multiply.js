@@ -1,7 +1,8 @@
 function multiply(a) {
     console.log(a);
     if (a > 16)
-        return Promise.reject (new Error(`a is higher than 16`));
+        throw `a is higher than 16`;
+        // return Promise.reject (new Error(`a is higher than 16`));
 
     return Promise.resolve(a*a);
 }
