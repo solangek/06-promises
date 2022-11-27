@@ -12,19 +12,18 @@
             var img = new Image();
             img.src = url; // async - open connection
             img.onload = function() { resolve(img) }
-            img.onerror = function(e) { reject(e) }
+            img.onerror = function(e) { reject("there was an error loading the image") }
         });
     }
 
     document.addEventListener('DOMContentLoaded', function(){
         
-        var imgPromise = loadImage("http://cs.hac.ac.il/wp-content/uploads/2019/11/bg-app.jpg");
+        var imgPromise = loadImage("http://cs.hac.ac.il/wp-content/uploads/2019/11/bg-aprp.jpg");
 
         imgPromise.then(function (img){
             document.getElementById("content").appendChild(img);
         }).catch(function(e){
-            console.log("error");
-            console.log(e);
+            document.getElementById("content").appendChild(document.createTextNode("Error: "+ e));
         });
 
     }, false);
