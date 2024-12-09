@@ -18,7 +18,7 @@
 
     document.addEventListener('DOMContentLoaded', function(){
         
-        var imgPromise = loadImage("http://cs.hac.ac.il/wp-content/uploads/2019/11/bg-aprp.jpg");
+        const imgPromise = loadImage("https://cs.hac.ac.il/wp-content/uploads/2020/07/cropped-IMG_5573.png");
 
         imgPromise.then(function (img){
             document.getElementById("content").appendChild(img);

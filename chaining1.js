@@ -1,6 +1,6 @@
 const fetchData = () => {
     return new Promise((resolve, reject) => {
-        //console.log("building Promise");
+        console.log("building Promise");
         setTimeout(() => {
             resolve('Promise is Done!');
         }, 1000);
@@ -9,32 +9,6 @@ const fetchData = () => {
 
 console.log('Hello!');
 
-setTimeout(() => {
-    //console.log('Timer is done!');
-    fetchData()
-        .then(text => {
-            //console.log("1:");
-            console.log(text);
-            return fetchData();
-        })
-        .then(text2 => {
-            //console.log("2:");
-            console.log(text2);
-        });
-}, 2000);
-
-
-
-/*
-const fetchData = () => {
-    const promise = new Promise((resolve, reject) => {
-        //console.log("building Promise");
-        setTimeout(() => {
-            resolve('Promise is Done!');
-        }, 1500);
-    });
-    return promise;
-};
 setTimeout(() => {
     console.log('Timer is done!');
     fetchData()
@@ -49,12 +23,22 @@ setTimeout(() => {
         });
 }, 2000);
 
-console.log('Hello!');
- */
+// output:
+//     Hello!
+//     Promise is Done!
+//     Promise is Done!
 
-/*
-Hello!
-Timer is done!
-Promise is Done!
-Promise is Done!
- */
+
+// same code with async/await syntax
+
+// setTimeout(async () => {
+//     console.log('Timer is done!');
+//     try {
+//         let text = await fetchData();
+//         console.log(text);
+//         let text2 = await fetchData();
+//         console.log(text2);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }, 2000);
