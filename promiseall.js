@@ -16,7 +16,8 @@ async function fetchAllData(urls) {
         // results contains the resolved values of all the promises, i.e. the JSON data
         console.log(results);
     } catch (error) {
-        console.error('Error fetching data:', error);    }
+        console.error('Error fetching data:', error);
+    }
 }
 
 fetchAllData(urls);

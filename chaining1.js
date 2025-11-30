@@ -31,14 +31,15 @@ setTimeout(() => {
 
 // same code with async/await syntax
 
-// setTimeout(async () => {
-//     console.log('Timer is done!');
-//     try {
-//         let text = await fetchData();
-//         console.log(text);
-//         let text2 = await fetchData();
-//         console.log(text2);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }, 2000);
+setTimeoutAsync(
+    async () => {
+        console.log('Timer is done!');
+        try {
+            let text = await fetchData();
+            console.log(text);
+            let text2 = await fetchData();
+            console.log(text2);
+        } catch (error) {
+            console.error(error);
+        }
+    }, 2000);
