@@ -7,6 +7,17 @@
 <body>
 
 <script>
+    /**
+     * explanations:
+     * When you set img.src = url, the browser starts downloading the image in the background
+     * without blocking the rest of your code. This is the asynchronous operation.
+     * The function immediately returns a Promise
+     * The browser downloads the image in parallel while your code continues executing
+     * When the download completes, the onload callback fires and the Promise resolves with the image
+     * If the download fails, the onerror callback fires and the Promise rejects
+     * @param url
+     * @returns {Promise<unknown>}
+     */
     function loadImage(url){
         return new Promise(function(resolve, reject) {
             var img = new Image();
@@ -17,7 +28,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function(){
-        
+
         const imgPromise = loadImage("https://cs.hac.ac.il/wp-content/uploads/2020/07/cropped-IMG_5573.png");
 
         imgPromise.then(function (img){
